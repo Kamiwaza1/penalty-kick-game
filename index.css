@@ -1,0 +1,444 @@
+#goalkeeper img {
+    width: 100%;
+    /* Keep aspect ratio */
+}
+
+.zen-dots-regular {
+    font-family: "Zen Dots", serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 30rem;
+}
+
+.bungee-tint-regular {
+    font-family: "Bungee Tint", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.field {
+    position: relative;
+    width: 1366px;
+    height: 683px;
+    max-width: 100%;
+    max-height: 100%;
+    background: green;
+    border: 5px solid cyan;
+    box-shadow: 0 0 20px cyan;
+    transform: perspective(1000px) rotateX(50deg);
+    /* 50-degree tilt */
+    transform-origin: center;
+    z-index: 500;
+    animation: glow 1.5s infinite alternate;
+}
+
+
+.line {
+    position: absolute;
+    background-color: cyan;
+    box-shadow: 0 0 10px cyan, 0 0 20px cyan;
+    animation: glow 1.5s infinite alternate;
+    border: 10px;
+}
+
+
+.center-circle {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 10px solid cyan; 
+    box-shadow: 0 0 15px cyan, 0 0 30px blue;
+    border-radius: 50%;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%) perspective(1000px) rotateX(50deg)
+}
+
+
+
+.goal {
+    position: absolute;
+    width: 500px;
+    height: 150px;
+    top: 50px;
+    /* Adjust to align better with the field */
+    left: 431px;
+    /* Center the goal */
+    transform: perspective(1200px) rotateX(0deg) translateZ(-300px);
+
+}
+
+.goal-frame {
+    position: absolute;
+    width: 500px;
+    height: 250px;
+    border: 4px solid cyan;
+    box-shadow: 0 0 10px cyan;
+}
+
+
+
+.goal-side {
+    position: absolute;
+    width: 125px;
+    height: 250px;
+    border-right: 3px solid cyan;
+    transform: translateX(-50px) rotateY(90deg);
+}
+
+.goal-right {
+    left: 100%;
+}
+
+.goal-left {
+    left: 0;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgb(0, 255, 255);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgb(0, 255, 255);
+    }
+
+    100% {
+        box-shadow: 0 0 10px rgb(0, 255, 255);
+    }
+}
+
+.neon-glow {
+    animation: glow 1.5s infinite alternate;
+}
+
+body {
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background-color: black;
+    width: 1366px;
+}
+
+.title {
+    font-size: 3rem;
+    color: cyan;
+    text-shadow:
+        0 0 10px cyan,
+        0 0 20px blue,
+        0 0 30px magenta,
+        0 0 40px yellow,
+        0 0 50px red;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: slideIn 1.5s ease-out forwards, neon 1.5s ease-in-out infinite alternate, moveLeftRight 3s ease-in-out infinite;
+}
+
+/* Slide in animation */
+@keyframes slideIn {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Neon glow animation */
+@keyframes neon {
+    0% {
+        text-shadow:
+            0 0 10px cyan,
+            0 0 20px blue,
+            0 0 30px magenta,
+            0 0 40px yellow,
+            0 0 50px red;
+    }
+
+    50% {
+        text-shadow:
+            0 0 10px red,
+            0 0 20px yellow,
+            0 0 30px magenta,
+            0 0 40px blue,
+            0 0 50px cyan;
+    }
+
+    100% {
+        text-shadow:
+            0 0 10px cyan,
+            0 0 20px blue,
+            0 0 30px magenta,
+            0 0 40px yellow,
+            0 0 50px red;
+    }
+}
+
+/* Move left and right animation */
+@keyframes moveLeftRight {
+
+    0%,
+    100% {
+        transform: translateX(-50%);
+    }
+
+    50% {
+        transform: translateX(-45%);
+    }
+}
+
+.result {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.reset-button {
+    display: inline-block;
+    /* Ensure the button is displayed */
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: black;
+}
+
+.reset-button:hover {
+    background-color: darkgreen;
+}
+
+.ball {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background: white;
+    border-radius: 50%;
+    transition: all 0.5s ease-out;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /* Added shadow */
+    z-index: 600;
+}
+
+#loginBox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 20px red;
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 200px;
+    /* Adjusted width */
+}
+
+#loginBox h2 {
+    margin-bottom: 10px;
+    /* Add margin to separate heading from list */
+    color: red;
+    /* Make the "Top 3 High Scores" text green */
+    
+}
+
+#loginBox ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    /* Add margin to separate list from input */
+}
+
+#loginBox input {
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    
+    /* Ensure full width */
+}
+
+#loginBox button {
+    padding: 10px;
+    font-size: 1rem;
+    background: red;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    
+    /* Ensure full width */
+}
+
+#loginBox button:hover {
+    background: red;
+}
+
+#loginBox input:focus {
+    border: 2px solid red;
+    background-color: rgba(0, 255, 255, 0.1);
+}
+
+#overlay {
+    transition: opacity 1s ease-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#question-box {
+    position: fixed;
+    bottom: 10px;
+    /* Distance from the bottom */
+    left: 10px;
+    /* Distance from the left */
+    background-color:  rgba(0, 0, 0, 0.7);
+    /* Semi-transparent background */
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    font-size: 0.8rem;
+    z-index: 1000;
+    /* Ensures it stays on top of other elements */
+    
+}
+#question-text {
+    font-size: 1.5rem;
+    color: white;
+    
+}
+.answer-button {
+    display:flex; 
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: cyan;
+    color: white;
+    cursor: pointer;
+    z-index: 1;
+    /* Ensure the buttons are above other elements */
+}
+
+.answer-button:hover {
+    background-color: black;
+    color: cyan;
+
+}
+
+.answer-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+#main-menu-button {
+    position: fixed;
+    top: 20px; /* Changed from bottom to top */
+    left: 20px; /* Changed from center to left */
+    transform: none; /* Remove center alignment */
+    font-size: 1rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-shadow: 0 0 5px red, 0 0 10px red, 0 0 15px red;
+    font-weight: bold;
+    z-index: 1000;
+    /* Ensure it stays on top of other elements */
+}
+
+#main-menu-button:hover {
+    text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
+}
+
+
+
+/* High Scores Box styling */
+.high-scores-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Semi-transparent black background */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px red;
+    text-align: center;
+    width: 300px;
+    margin: 50px auto;
+    font-family: 'Arial', sans-serif;
+    margin-left: 10px;
+}
+
+/* High Scores Heading */
+.high-scores-box h2 {
+    color: red;
+    font-size: 2rem;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #00f, 0 0 30px #ff00ff;
+}
+
+/* High Scores List */
+#highScoreList {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+#highScoreList li {
+    color: red;
+    /* Make the actual top 3 ranked players blue */
+    font-size: 1.5rem;
+    margin: 10px 0;
+   
+}
+
+
+
+.corner-line {
+    position: absolute;
+    /* Changed to fixed to position relative to the body */
+    width: 10px;
+    height: 60%;
+
+    /* Height of the line */
+    background-color: rgb(170, 0, 255);
+    /* Changed color */
+    box-shadow: 0 0 20px rgb(170, 0, 255), 0 0 40px rgb(170, 0, 255), 0 0 60px rgb(170, 0, 255);
+    /* Enhanced glow */
+    animation: glow 1.5s infinite alternate;
+    border: 5px;
+
+}
+
+.corner-line-left {
+    top: 0;
+    left: 239px;
+
+}
+
+.corner-line-right {
+    top: 0;
+    left: 1289px;
+
+}

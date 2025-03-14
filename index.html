@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penalty Shootout Game</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/logo penalty.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Question Box -->
+    <div id="question-box" style="display: none;">
+        <h2 id="question-text"></h2>
+        <div id="answer-buttons"></div>
+    </div>
+    <!-- Start Page -->
+    <div id="start-page">
+        <div id="overlay">
+          <div class="title">Penalty Game</div>
+          <div id="loginBox">
+            <h2>Top 5 High Scores</h2>
+            <ul id="highScoreList"></ul>
+            <input type="text" id="playerName" placeholder="Enter your name" oninput="checkNameInput()">
+            <button id="start-button" onclick="startGame()" disabled>Start Game</button>
+          </div>
+        </div>
+      </div>
+
+    <!-- Field -->
+    <div class="field">
+        <div class="line"
+            style="width: 100%; height: 15px; top: 80%; transform: translateY(-50%) perspective(8000px) rotateX(60deg);">
+        </div>
+        <div class="center-circle neon-glow"></div>
+
+    </div>
+
+    <!-- Main Menu Button -->
+    <button id="main-menu-button" onclick="goToMainMenu()" style="display: none;">Main Menu</button>
+    <!-- Add this button -->
+
+    <div class="goal">
+        <div class="goal-frame"></div>
+        <div class="goal-side goal-left"></div>
+        <div class="goal-side goal-right"></div>
+        <div class="goal-top goal-top-glow"></div>
+    </div>
+
+    <script src="java/script.js" type="module"></script>
+    <script type="module">
+        import { checkNameInput, startGame } from './java/script.js';
+        window.checkNameInput = checkNameInput;
+        window.startGame = startGame;
+    </script>
+</body>
+
+</html>

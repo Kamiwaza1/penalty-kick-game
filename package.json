@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "@firebase/firestore": "^4.7.9",
+    "express": "^4.17.1",
+    "firebase": "^9.22.2",
+    "firebase-admin": "^13.2.0"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0",
+    "webpack-cli": "^6.0.1"
+  },
+  "scripts": {
+    "dev": "vite",
+    "start": "node firestore.js",
+    "serve": "serve ."
+  },
+  "type": "module"
+}
+
